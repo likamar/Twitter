@@ -6,7 +6,7 @@ class Tweet
     
     private $userId;
     
-    private $tweetText;
+    private $text;
     
     private $creationDate;
     
@@ -20,7 +20,7 @@ class Tweet
         return $this->userId;
     }
     
-    public function getTweetText()
+    public function getText()
     {
         return $this->tweetText;
     }
@@ -30,9 +30,9 @@ class Tweet
         return $this->creationDate;
     }
     
-    public function setTweetText($tweetText)
+    public function setText($tweetText)
     {
-        $this->tweetText = $tweetText;
+        $this->text = $tweetText;
     }
     
     public function setCreationDate()
