@@ -80,7 +80,7 @@ class User
             $password = filter_var($password, FILTER_SANITIZE_STRING);
             $this->password = password_hash($password, PASSWORD_BCRYPT, $options);
         } else {
-            throw new Exception('Password must consist at least of 8 chars');
+            throw new Exception('Password must consist at least of 8 characters');
         }
     }
 }
