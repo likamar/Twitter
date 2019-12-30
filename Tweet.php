@@ -32,7 +32,7 @@ class Tweet
     
     public function setTweetBody($tweetBody)
     {
-        $this->tweetBody = $tweetBody;
+        $this->tweetBody = filter_var($tweetBody, FILTER_SANITIZE_STRING);
     }
     
     public function setCreationDate()
@@ -40,3 +40,10 @@ class Tweet
         $this->creationDate = date('D, d M Y H:i:s');
     }
 }
+
+$tweet = new Tweet();
+$tweet->setTweetBody('My first tweet');
+$tweet->setCreationDate();
+echo $tweet->getTweetBody();
+echo '<br>';
+echo $tweet->getCreationDate();
