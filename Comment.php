@@ -36,5 +36,21 @@ class Comment
     {
         return $this->creationDate;
     }
+    
+    public function setCommentBody($commentBody)
+    {
+        $this->commentBody = filter_var($commentBody, FILTER_SANITIZE_STRING);
+    }
+    
+    public function setCreationDate()
+    {
+        $this->creationDate = date('D, d M Y H:i:s');
+    }
 }
 
+//$comment = new Comment();
+//$comment->setCommentBody('My first comment');
+//$comment->setCreationDate();
+//echo $comment->getCommentBody();
+//echo '<br>';
+//echo $comment->getCreationDate();
