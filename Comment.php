@@ -12,6 +12,12 @@ class Comment
     
     private $creationDate;
     
+    public function __construct($commentBody)
+    {
+        $this->setCommentBody($commentBody);
+        $this->setCreationDate();
+    }
+    
     public function getId()
     {
         return $this->id;
@@ -48,7 +54,8 @@ class Comment
     }
 }
 
-//$comment = new Comment();
+$comment = new Comment('My first comment');
+var_dump($comment);
 //$comment->setCommentBody('My first comment');
 //$comment->setCreationDate();
 //echo $comment->getCommentBody();

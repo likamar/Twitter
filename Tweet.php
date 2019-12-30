@@ -10,6 +10,12 @@ class Tweet
     
     private $creationDate;
     
+    public function __construct($tweetBody)
+    {
+        $this->setTweetBody($tweetBody);
+        $this->setCreationDate();
+    }
+    
     public function getId()
     {
         return $this->id;
@@ -41,9 +47,10 @@ class Tweet
     }
 }
 
-$tweet = new Tweet();
-$tweet->setTweetBody('My first tweet');
-$tweet->setCreationDate();
-echo $tweet->getTweetBody();
-echo '<br>';
-echo $tweet->getCreationDate();
+$tweet = new Tweet('My first tweet');
+var_dump($tweet);
+//$tweet->setTweetBody('My first tweet');
+//$tweet->setCreationDate();
+//echo $tweet->getTweetBody();
+//echo '<br>';
+//echo $tweet->getCreationDate();
