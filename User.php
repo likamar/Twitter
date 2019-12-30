@@ -12,6 +12,14 @@ class User
     
     private $password;
     
+    public function __construct($name, $surname, $email, $password)
+    {
+        $this->setName($name);
+        $this->setSurname($surname);
+        $this->setEmail($email);
+        $this->setPassword($password);
+    }
+    
     public function getId()
     {
         return $this->id;
@@ -77,10 +85,11 @@ class User
     }
 }
 
-$user = new User();
-$user->setEmail('marcin@wp.pl');
-$user->setName('adam');
-$user->setPassword('Alibaba12!');
-var_dump($user->getEmail());
-var_dump($user->getName());
-var_dump($user->getPassword());
+$user = new User('marcin', 'kowalski', 'mkowalski@o2.com', 'Alibaba12!');
+var_dump($user);
+//$user->setEmail('marcin@wp.pl');
+//$user->setName('adam');
+//$user->setPassword('Alibaba12!');
+//var_dump($user->getEmail());
+//var_dump($user->getName());
+//var_dump($user->getPassword());
