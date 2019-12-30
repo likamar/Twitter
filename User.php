@@ -67,12 +67,20 @@ class User
     
     public function setPassword($password)
     {
-        $this->password = $password;
+        $options = ['cost' => 11];
+        if (is_string($password) && strlen($password) >= 8) {
+            $password = filter_var($password, FILTER_SANITIZE_STRING);
+            $this->password = password_hash($password, PASSWORD_BCRYPT, $options);
+        } else {
+            throw new Exception('Password must consist at least of 8 chars');
+        }
     }
 }
 
 $user = new User();
 $user->setEmail('marcin@wp.pl');
 $user->setName('adam');
+$user->setPassword('Alibaba12!');
 var_dump($user->getEmail());
 var_dump($user->getName());
+var_dump($user->getPassword());
